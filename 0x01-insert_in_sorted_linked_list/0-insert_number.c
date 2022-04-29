@@ -6,7 +6,7 @@
  * @head: A double pointer that contains the head.
  * @number: number to add in the list.
  *
- * Return: the new head
+ * Return: head of new list.
  */
 
 listint_t *insert_node(listint_t **head, int number)
