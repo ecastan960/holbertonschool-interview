@@ -9,7 +9,7 @@ def minOperations(n):
 
     Args:
         n (number): input number
-    """    
+    """
     ans = 0
     if n > 1:
         for i in range(2, int(math.sqrt(n) + 1)):
