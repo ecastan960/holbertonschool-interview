@@ -2,6 +2,7 @@
 """Method File minOperations"""
 import math
 
+
 def minOperations(n):
     """Method that calculates the fewest number of
     operation needed to result in exactly n H characters
