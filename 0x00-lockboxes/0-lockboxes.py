@@ -4,7 +4,7 @@
 
 
 def canUnlockAll(boxes):
-    """method that determines if all the boxes can be opened
+    """Method that determines if all the boxes can be opened
 
     Args:
     boxes (list): list of locked boxes
