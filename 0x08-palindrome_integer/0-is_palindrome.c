@@ -1,6 +1,25 @@
 #include "palindrome.h"
-#include <math.h>
 #include <stdio.h>
+
+/**
+ * power- power function
+ * @base: base number.
+ * @power: power.
+ *
+ * Return: power
+ */
+
+int po(int base,int power)
+{
+	int count = power;
+	int result = 1;
+	while (count > 0)
+	{
+	result *= base;
+	count -= 1;
+	}
+return result;
+}
 
 /**
  * is_palindrome - function that checks whether or not
@@ -27,7 +46,7 @@ int is_palindrome(unsigned long n)
 	lastN = n % 10;
 	if (firstN != lastN)
 		return (0);
-	n = n - (firstN * (pow(10, count)));
+	n = n - (firstN * (po(10, count)));
 	n = n / 10;
 	result = is_palindrome(n);
 	return (result);

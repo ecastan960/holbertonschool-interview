@@ -4,6 +4,16 @@
 #include <math.h>
 
 /**
+ * power- power function
+ * @base: base number.
+ * @power: power.
+ *
+ * Return: power
+ */
+
+int po(int base,int power);
+
+/**
  * is_palindrome - function that checks whether or not a
  * given unsigned integer is a palindrome.
  * @n: number to be checked.
