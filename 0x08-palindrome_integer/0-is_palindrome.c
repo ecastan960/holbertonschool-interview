@@ -34,6 +34,9 @@ int is_palindrome(unsigned long n)
 	int count = 0, firstN, lastN, result;
 	unsigned long temp = n;
 
+	if (n < 0)
+		n = -n;
+
 	if (n / 10 == 0)
 		return (1);
 
