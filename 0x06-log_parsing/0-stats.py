@@ -21,14 +21,15 @@ def afterTen(statCount, fileSize):
 def log_parsing():
     """_summary_
     """
-    count = size = 0
+    count = 0
+    size = 0
     counter = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
                "404": 0, "405": 0, "500": 0}
 
     try:
-        for input in sys.stdin:
+        for data in sys.stdin:
             count += 1
-            temp = input.split(" ")
+            temp = data.split(" ")
             try:
                 statusCode = temp[-2]
                 size += int(temp[-1])
