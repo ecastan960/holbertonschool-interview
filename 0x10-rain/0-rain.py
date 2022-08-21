@@ -16,11 +16,11 @@ def rain(walls):
   size = len(walls)
 
   for i in range(1, size - 1):
-      left = walls[i]
-      for j in range(i):
-          left = max(left, walls[j])
-      right = walls[i]
-      for j in range(i + 1, size):
-          right = max(right, walls[j])
-      total = total + (min(left, right) - walls[i])
+    left = walls[i]
+    for j in range(i):
+      left = max(left, walls[j])
+    right = walls[i]
+    for j in range(i + 1, size):
+      right = max(right, walls[j])
+    total = total + (min(left, right) - walls[i])
   return total
