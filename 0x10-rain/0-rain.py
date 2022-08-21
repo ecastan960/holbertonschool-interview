@@ -2,6 +2,7 @@
 """_summary_
 """
 
+
 def rain(walls):
   """_summary_
 
