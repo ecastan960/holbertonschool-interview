@@ -2,7 +2,6 @@
 """_summary_
 """
 
-
 def rain(walls):
   """_summary_
 
@@ -11,7 +10,7 @@ def rain(walls):
 
   Returns:
       _type_: _description_
-  """    
+  """
   total = 0
   size = len(walls)
 
