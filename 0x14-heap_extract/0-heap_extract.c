@@ -49,7 +49,7 @@ size_t tree_size_h(const binary_tree_t *tree)
 }
 
 /**
- * _preorder - function
+ * preorder - function
  * @tree: tree
  * @node: node
  * @height: height
