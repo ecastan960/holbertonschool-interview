@@ -39,12 +39,12 @@ if __name__ == "__main__":
         else:
             for col in range(queens):
                 pos = [row, col]
-                if validposition(answer, pos):
+                if valid(answer, pos):
                     answer.append(pos)
                     nqueens(row + 1, queens, answer)
                     answer.remove(pos)
 
-    def validposition(answer, position):
+    def valid(answer, position):
         """_summary_
 
         Args:
