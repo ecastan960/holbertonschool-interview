@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-""" module docs """
+"""_summary_
+
+Returns:
+    _type_: _description_
+"""
 from sys import argv, exit
 
 if __name__ == "__main__":
@@ -20,27 +24,41 @@ if __name__ == "__main__":
         print("N must be at least 4")
         exit(1)
 
-    solution = []
+    answer = []
 
-    def nqueens(row, queens, solution):
-        """ method docs """
+    def nqueens(row, queens, answer):
+        """_summary_
+
+        Args:
+            row (_type_): _description_
+            queens (_type_): _description_
+            answer (_type_): _description_
+        """
         if (row == queens):
-            print(solution)
+            print(answer)
         else:
             for col in range(queens):
                 pos = [row, col]
-                if validposition(solution, pos):
-                    solution.append(pos)
-                    nqueens(row + 1, queens, solution)
-                    solution.remove(pos)
+                if valid(answer, pos):
+                    answer.append(pos)
+                    nqueens(row + 1, queens, answer)
+                    answer.remove(pos)
 
-    def validposition(solution, position):
-        """ method docs """
-        for queen in solution:
+    def valid(answer, position):
+        """_summary_
+
+        Args:
+            answer (_type_): _description_
+            position (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
+        for queen in answer:
             if queen[1] == position[1] or \
                 (queen[0] - queen[1]) == (position[0] - position[1]) or \
                     (queen[0] + queen[1]) == (position[0] + position[1]):
                 return False
         return True
 
-    nqueens(0, queens, solution)
+    nqueens(0, queens, answer)
