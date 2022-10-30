@@ -15,6 +15,8 @@ def makeChange(coins, total):
     remainingTotal = total
     check = 0
 
+    if len(coins) == 0:
+        return -1
     for val in coins:
         if (total / val).is_integer():
             check = 0
