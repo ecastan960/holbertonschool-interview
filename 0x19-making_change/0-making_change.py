@@ -23,7 +23,7 @@ def makeChange(coins, total):
     coins.sort(reverse=True)
     for val in coins:
         if val > remainingTotal:
-            break
+            continue
         numberCoins += math.floor(remainingTotal / val)
         remainingTotal -= math.floor(remainingTotal / val) * val
         if remainingTotal == 0:
