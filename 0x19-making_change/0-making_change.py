@@ -13,7 +13,6 @@ def makeChange(coins, total):
     """
     numberCoins = 0
     remainingTotal = total
-    check = 0
 
     if len(coins) == 0:
         return -1
