@@ -19,19 +19,13 @@ def makeChange(coins, total):
         return -1
     if total <= 0:
         return 0
-    for val in coins:
-        if (total / val).is_integer():
-            check = 0
-            break
-        check = 1
-
-    if check == 1:
-        return -1
 
     coins.sort(reverse=True)
     for val in coins:
         numberCoins += math.floor(remainingTotal / val)
         remainingTotal -= math.floor(remainingTotal / val) * val
+        if remainingTotal > total:
+            break
         if remainingTotal == 0:
             return numberCoins
     return -1
