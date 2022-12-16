@@ -1,51 +1,89 @@
 #include "regex.h"
+#include <stdio.h>
+
 
 /**
- * strcmp - compare two strings
- * @str1: string
- * @str2: string
- *
- * Return: 1 if they are "equal", 0 otherwise.
+ * regex_check - function to check patterns
+ * @str: string
+ * @pattern: pattern
+ * @str2: pointer
+ * @p2: pointer
+ * Return: 1 or 0
  */
-int strcmp(char const *str1, char const *str2)
+int regex_check(char const *str, char const *pattern,
+		     const char **str2, const char **p2)
 {
+	const char *p_start;
+	int match = 0;
 
-	if (*str2 == '*')
-		return (starcheck(str1, str2 + 1));
-	if (*str1 == '\0' || *str2 == '\0')
-	{
-		if (*str2 == '\0' && *str1 == '\0')
-			return (1);
+	if (!str || !pattern)
 		return (0);
+	while (*str)
+	{
+		while (*str && *str != *pattern)
+			str++;
+		p_start = pattern;
+		while (*str == *pattern && *pattern != '.' &&
+		       *pattern != '*' && *pattern != '\0' &&
+		       *(pattern + 1) != '*')
+		{
+			str++;
+			pattern++;
+		}
+		if (*pattern == '.' || *pattern == '*' ||
+		    *pattern == '\0' || *(pattern + 1) == '*')
+		{
+			*p2 = pattern;
+			*str2 = str;
+			match = 1;
+		}
+		pattern = p_start;
 	}
-	if (*str1 == *str2)
-		return (strcmp(str1 + 1, str2 + 1));
-	return (0);
+
+	return (match);
 }
 
 /**
- * starcheck - branch horizontally if a '*' has been encountered
- * @s1: ptr to string
- * @star: string with '*'
- *
- * Return: 1 if the string matches, else 0
+ * regex_match - checks if pattern matches a given string
+ * @str: string
+ * @pattern: pattern
+ * Return: 1 if match else 0
  */
-int starcheck(char const *s1, char const *star)
+int regex_match(char const *str, char const *pattern)
 {
-	if (*s1 == '\0')
-		return (strcmp(s1, star));
-	return (strcmp(s1, star) || starcheck(s1 + 1, star));
-}
+	char repeat;
+	const char *str2 = NULL, *p2 = NULL;
 
-
-/**
- * regex_match - checks if a pattern match a given string
- * @str: ptr to string to check
- * @check: string to compare with
- *
- * Return: 1 if match, otherwise 0
- */
-int regex_match(char const *str, char const *check)
-{
-	return (strcmp(str, check));
+	if (!str || !pattern)
+		return (0);
+	while (*pattern)
+	{
+		if (*(pattern + 1) == '*')
+		{
+			if (*pattern == '.')
+			{
+				pattern += 2;
+				if (regex_check(str, pattern, &str2, &p2))
+				{
+					str = str2;
+					pattern = p2;
+				}
+			}
+			else
+			{
+				repeat = *pattern;
+				pattern += 2;
+				while (*str == repeat)
+					str++;
+			}
+		}
+		else if (*pattern == '.' || *pattern == *str)
+		{
+			pattern++;
+			str++;
+		}
+		else
+			break;
+	}
+	return (!(*str) && !(*pattern));
 }
