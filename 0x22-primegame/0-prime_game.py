@@ -48,7 +48,7 @@ def isWinner(x, nums):
             if (nums[r] < 1):
                 winner = None
                 break
-            if (nums[r] == 1 ):
+            if (nums[r] == 1):
                 if(turn == 'Maria'):
                     maria += 1
                     turn = 'Ben'
