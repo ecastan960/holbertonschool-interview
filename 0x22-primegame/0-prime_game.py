@@ -48,12 +48,20 @@ def isWinner(x, nums):
             if (nums[r] < 1):
                 winner = None
                 break
-            if (nums[r] == 1 or nums[r] == 2):
+            if (nums[r] == 1 ):
                 if(turn == 'Maria'):
                     maria += 1
                     turn = 'Ben'
                 else:
                     ben += 1
+                    turn = 'Maria'
+                break
+            if (nums[r] == 2):
+                if(turn == 'Maria'):
+                    ben += 1
+                    turn = 'Ben'
+                else:
+                    maria += 1
                     turn = 'Maria'
                 break
             if (nums[r] > 2 and n >= 2):
