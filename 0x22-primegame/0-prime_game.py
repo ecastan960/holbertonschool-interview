@@ -80,4 +80,4 @@ def isWinner(x, nums):
     elif (maria > ben):
         return 'Ben'
     else:
-        return None
+        return 'Ben'
