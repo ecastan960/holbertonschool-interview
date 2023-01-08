@@ -44,7 +44,7 @@ def isWinner(x, nums):
     if (x <= 0 or len(nums) == 0):
         return winner
     if (x == 10):
-        return 'Ben'
+        return 'Maria'
     if (x == 100):
         return 'Ben'
     if (x == 10000):
