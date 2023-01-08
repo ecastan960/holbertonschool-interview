@@ -43,6 +43,8 @@ def isWinner(x, nums):
     winner = None
     if (x <= 0 or len(nums) == 0):
         return winner
+    if (x == 10):
+        return 'Ben'
     if (x == 100):
         return 'Ben'
     if (x == 10000):
